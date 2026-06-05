@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>翻開禁忌的另一頁：農曆七月主題特展 | 臺灣商務印書館</title>
+    <meta name="description" content="當夜幕低垂，農曆七月的晚風吹起，你敢翻開這本書嗎？臺灣商務印書館農曆七月主題特展，從神話到民俗，解碼那些被歷史掩蓋的暗影密碼。">
+    <meta name="keywords" content="臺灣商務印書館, 農曆七月, 鬼怪, 神話, 特展, 閱讀, 歷史">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="翻開禁忌的另一頁｜農曆七月主題特展">
+    <meta property="og:description" content="來玩「百鬼夜行：社畜變身測驗」，5道試煉找出你的妖怪型態！收藏圖鑑，享活動書單優惠。">
+    <meta property="og:image" content="images/share-card.avif">
+    <meta property="og:url" content="https://www.cptw.com.tw/event/ghost-month">
+    <meta property="og:type" content="website">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ================= 完整樣式 ================= */
+        :root {
+            --primary-bg:#131824;
+            --secondary-bg:#1e2638;
+            --text-light:#e0e6ed;
+            --text-dark:#333333;
+            --accent-color:#002766;
+            --accent-hover:#0044cc;
+            --gold:#d4af37;
+            --border-radius:12px;
+            --transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+            --g-panel-bg: rgba(22, 20, 31, 0.85);
+            --g-accent-crimson: #ff3e55;
+            --g-accent-gold: #ffd700;
+            --g-text-light: #f5f5f7;
+            --g-text-muted: #a0a0b0;
+        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:"Noto Sans TC","微軟正黑體",sans-serif;background-color:var(--primary-bg);color:var(--text-light);line-height:1.6;overflow-x:hidden}
+        a{text-decoration:none;color:inherit}
+        ul{list-style:none}
+        img{max-width:100%;height:auto;display:block}
+        .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+        .skip-link{position:absolute;top:-50px;left:0;background:var(--gold);color:#000;padding:10px 20px;z-index:100000;font-weight:bold;transition:top .3s}
+        .skip-link:focus{top:0}
+        a:focus-visible,button:focus-visible,input:focus-visible{outline:3px dashed var(--gold);outline-offset:4px;border-radius:4px}
+        @keyframes fadeIn{0%{opacity:0;transform:scale(.95)}100%{opacity:1;transform:scale(1)}}
+        @keyframes floatingAnimTitle{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+        @keyframes floatingAnimBtn{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+        @keyframes fall{0%{top:-10%}100%{top:110vh}}
+        @keyframes sway{0%{transform:translateX(0) rotate(0deg)}100%{transform:translateX(30px) rotate(45deg)}}
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+        #sakura-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:999;overflow:hidden}
+        .petal{position:absolute;top:-10%;background-color:#ffb7c5;border-radius:100% 0 100% 0;opacity:.6;animation:fall linear infinite,sway ease-in-out infinite alternate}
+        .floating-buttons{position:fixed;bottom:40px;right:40px;z-index:9999;display:flex;flex-direction:column;gap:15px;align-items:center;}
+        .floating-btn{display:block;width:70px;height:70px;transition:transform .3s cubic-bezier(.175,.885,.32,1.275);animation:floatingAnimBtn 5s ease-in-out infinite;background:transparent;border:none;cursor:pointer;}
+        .floating-btn img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 2px 5px rgba(0,0,0,0.3));}
+        .floating-btn:hover{transform:scale(1.12)!important;}
+        .back-to-top{width:70px;height:70px;background:rgba(0,0,0,0.5);border-radius:50%;backdrop-filter:blur(4px);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s;}
+        .back-to-top i{font-size:32px;color:var(--gold);}
+        .back-to-top:hover{transform:scale(1.12);background:var(--accent-color);}
+        @media (max-width:768px){.floating-btn,.back-to-top{width:55px;height:55px;}.back-to-top i{font-size:26px;}.floating-buttons{bottom:20px;right:20px;gap:12px;}}
+        .hero{position:relative;width:100%;height:85vh;min-height:700px;background:url('images/hero-bg.webp') center/cover no-repeat;overflow:hidden}
+        .hero-layers{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:1200px;height:100%;z-index:2}
+        .hero-element{position:absolute;opacity:0}
+        .hero-layer-1{top:15%;left:8%;width:45%;max-width:695px;animation:fadeIn 1.5s ease forwards .5s}
+        .hero-layer-2-wrapper{top:calc(25% + 50px);right:10%;width:25%;max-width:220px}
+        .hero-layer-2{animation:fadeIn 1.5s ease forwards 1.3s}
+        .img-float-title{animation:floatingAnimTitle 3s ease-in-out infinite}
+        .hero-layer-3{top:52%;left:13%;width:90%;max-width:446px;animation:fadeIn 1.5s ease forwards 2.1s}
+        .scroll-section{width:100%;max-width:900px;margin:-150px auto 4rem;padding:5rem 3rem;background:url('images/scroll-bg.webp') center/100% 100% no-repeat;min-height:350px;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(50px);transition:all 1s ease-out;position:relative;z-index:10}
+        .scroll-section.visible{opacity:1;transform:translateY(0)}
+        .typewriter-content{font-size:1.2rem;font-weight:bold;line-height:2;text-align:center;color:#3e2723;min-height:120px;text-shadow:0 0 5px rgba(255,255,255,.5)}
+        .cursor{display:inline-block;width:8px;height:1.2em;background-color:#3e2723;animation:blink .8s infinite;vertical-align:bottom;margin-left:2px}
+        .book-container{max-width:1200px;margin:0 auto;padding:2rem 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:30px 24px;position:relative;z-index:5}
+        .book-card{background-color:#fff;color:var(--text-dark);border-radius:var(--border-radius);padding:20px;text-align:center;box-shadow:0 10px 20px rgba(0,0,0,.2);transition:var(--transition);opacity:0;transform:translateY(30px)}
+        .book-card.visible{opacity:1;transform:translateY(0)}
+        .book-card:hover{transform:translateY(-15px) scale(1.03);box-shadow:0 20px 40px rgba(0,0,0,.4);z-index:2}
+        .book-cover{height:230px;object-fit:contain;margin:0 auto 15px;transition:transform .3s}
+        .book-card:hover .book-cover{transform:scale(1.05)}
+        .book-title{font-size:1.1rem;font-weight:bold;margin-bottom:10px;height:55px;overflow:hidden;color:#000;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+        .book-desc{font-size:.85rem;color:#666;height:85px;overflow:hidden;margin-bottom:15px;text-align:justify;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical}
+        .btn-buy{display:inline-block;background-color:var(--accent-color);color:#fff;padding:10px 28px;border-radius:30px;font-weight:bold;transition:var(--transition)}
+        .btn-buy:hover{background-color:var(--accent-hover);transform:scale(1.1);box-shadow:0 5px 15px rgba(0,68,204,.4)}
+        .carousel-section{max-width:1200px;margin:4rem auto;padding:0 20px}
+        .carousel-container{position:relative;width:100%;max-width:1160px;margin:0 auto;aspect-ratio:1160/347;border-radius:var(--border-radius);overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+        .carousel-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity .8s ease-in-out;display:block}
+        .carousel-slide.active{opacity:1;z-index:2}
+        .carousel-slide img{width:100%;height:100%;object-fit:cover}
+        .social-section{max-width:1200px;margin:4rem auto;padding:0 20px}
+        .section-title{text-align:center;font-size:1.8rem;margin-bottom:3rem;color:var(--gold);border-bottom:2px solid var(--gold);padding-bottom:10px;display:inline-block}
+        .reels-grid{max-width:900px;margin:0 auto 4rem;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+        .reel-wrapper{margin:0 auto;width:100%;aspect-ratio:9/16;background:#000;border-radius:var(--border-radius);overflow:hidden;box-shadow:0 10px 20px rgba(0,0,0,.3);transition:var(--transition)}
+        .reel-wrapper:hover{transform:translateY(-5px);box-shadow:0 15px 30px rgba(0,0,0,.5)}
+        .reel-wrapper iframe{width:100%;height:100%;border:none}
+        .hot-rec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1000px;margin:0 auto}
+        .rec-item-link{display:block;text-align:center;transition:var(--transition)}
+        .rec-item-link:hover .rec-card{transform:translateY(-5px);box-shadow:0 15px 30px rgba(0,0,0,.5);border-color:var(--gold)}
+        .rec-item-link:hover img{transform:scale(1.05)}
+        .rec-item-link:hover .rec-title{color:var(--gold)}
+        .rec-card{aspect-ratio:1/1;border-radius:var(--border-radius);overflow:hidden;box-shadow:0 10px 20px rgba(0,0,0,.3);transition:var(--transition);margin-bottom:15px;background-color:#fff;border:2px solid transparent;display:flex;align-items:center;justify-content:center}
+        .rec-card img{width:100%;height:100%;object-fit:contain;padding:20px;transition:transform .4s ease;box-sizing:border-box}
+        .rec-title{color:var(--text-light);font-size:1rem;font-weight:500;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:color .3s}
+        .site-footer{background-color:#0b0e14;padding:4rem 20px 2rem;margin-top:4rem;border-top:2px solid #2a364a}
+        .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr;gap:40px;margin-bottom:2rem}
+        .footer-col h4{color:#fff;margin-bottom:1.5rem;font-size:1.1rem;border-left:3px solid var(--gold);padding-left:10px}
+        .footer-col p{color:#8a9bb3;font-size:.9rem;margin-bottom:.8rem;display:block}
+        .social-icons{display:flex;gap:15px;flex-wrap:wrap}
+        .social-icons a{display:block;width:40px;height:40px;transition:transform .3s}
+        .social-icons img{width:100%;height:100%;object-fit:contain}
+        .social-icons a:hover{transform:scale(1.15) translateY(-3px)}
+        .footer-bottom{text-align:center;color:#5a6b85;font-size:.8rem;padding-top:2rem;border-top:1px solid #2a364a}
+        /* 遊戲區塊：高度改為 520px */
+        .game-section{max-width:1200px;margin:2rem auto 6rem;padding:0 20px}
+        .game-container-inline{width:100%;display:flex;justify-content:center;align-items:center;padding:30px 15px;background:var(--primary-bg);min-height:520px;}
+        .game-hidden{display:none !important;}
+        /* 遊戲卡片：最大寬度改為 520px */
+        .game-card{background:var(--g-panel-bg);width:100%;max-width:520px;border-radius:28px;padding:26px 24px;box-shadow:0 20px 50px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(12px);margin:0 auto;color:var(--g-text-light);}
+        .game-card .main-title{font-size:1.8rem;color:var(--g-accent-gold);text-align:center;margin-bottom:8px;}
+        .game-card .subtitle{font-size:1rem;color:var(--g-accent-crimson);text-align:center;margin-bottom:20px;letter-spacing:2px;}
+        .btn-action{display:block;width:100%;background:linear-gradient(135deg, var(--g-accent-crimson), #c1121f);color:white;border:none;padding:14px;font-size:1.1rem;font-weight:700;border-radius:60px;cursor:pointer;text-align:center;}
+        .progress-container{width:100%;height:8px;background:rgba(255,255,255,0.1);border-radius:10px;margin:15px 0;}
+        .progress-bar{height:100%;width:0%;background:linear-gradient(90deg, var(--g-accent-crimson), var(--g-accent-gold));border-radius:10px;transition:width 0.3s;}
+        .question-text{font-size:1.3rem;font-weight:700;margin:15px 0;line-height:1.4;}
+        .options-list{display:flex;flex-direction:column;gap:12px;}
+        .option-btn{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:60px;padding:14px 18px;text-align:left;color:white;font-size:0.95rem;cursor:pointer;transition:0.2s;}
+        .option-btn:hover{background:rgba(255,62,85,0.2);border-color:var(--g-accent-crimson);transform:translateX(5px);}
+        .card-flip-container{perspective:1000px;width:220px;height:330px;margin:15px auto;cursor:pointer;}
+        .card-inner{position:relative;width:100%;height:100%;transition:transform 0.8s;transform-style:preserve-3d;}
+        .card-flip-container.flipped .card-inner{transform:rotateY(180deg);}
+        .card-front-face,.card-back-face{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:16px;overflow:hidden;}
+        .card-back-face{background:#14121f;border:2px solid var(--g-accent-gold);display:flex;align-items:center;justify-content:center;}
+        .card-front-face{transform:rotateY(180deg);border:2px solid var(--g-accent-crimson);background:#000;}
+        .card-front-face img,.card-back-face img{width:100%;height:100%;object-fit:cover;}
+        .result-meta{background:rgba(255,62,85,0.2);display:inline-block;padding:6px 16px;border-radius:30px;font-size:0.8rem;margin:10px 0;}
+        .result-story{background:rgba(0,0,0,0.3);padding:15px;border-radius:20px;margin:15px 0;font-size:0.9rem;text-align:justify;}
+        .share-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:15px 0;}
+        .share-btn{background:rgba(255,255,255,0.05);border:none;border-radius:12px;padding:8px;text-align:center;color:white;cursor:pointer;transition:0.2s;font-size:0.7rem;}
+        .share-btn i{font-size:1.2rem;display:block;margin-bottom:5px;}
+        .collection-panel{margin-top:25px;border-top:1px solid rgba(255,215,0,0.3);padding-top:15px;}
+        .collection-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;}
+        .collection-grid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+        .collected-item{width:70px;text-align:center;cursor:pointer;background:rgba(0,0,0,0.4);border-radius:12px;padding:6px;transition:0.2s;border:1px solid rgba(255,215,0,0.3);}
+        .collected-item img{width:100%;aspect-ratio:1/1.2;object-fit:cover;border-radius:8px;background:#2a2a3a;}
+        .collected-item span{font-size:0.65rem;display:block;color:#ddd;}
+        .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(100px);background:#1e1e2a;border:1px solid var(--gold);color:var(--gold);padding:10px 20px;border-radius:40px;z-index:10000;transition:0.3s;opacity:0;pointer-events:none;text-align:center;max-width:90%;}
+        .toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
+        .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:20000;justify-content:center;align-items:center;}
+        .modal-content{max-width:90%;max-height:90%;background:var(--g-panel-bg);border-radius:28px;padding:20px;text-align:center;border:2px solid var(--gold);overflow:auto;display:flex;flex-direction:column;align-items:center;}
+        .modal-content img{max-width:280px;border-radius:20px;margin-bottom:15px;}
+        .modal-content h3{color:var(--gold);margin:10px 0;}
+        .modal-content p{color:#ddd;font-size:0.9rem;text-align:justify;max-width:400px;margin-top:10px;}
+        .close-modal{position:absolute;top:20px;right:30px;font-size:40px;color:white;cursor:pointer;}
+        @media (max-width:768px){
+            .game-card{padding:20px;}
+            .question-text{font-size:1.1rem;}
+            .option-btn{padding:12px;}
+            .collected-item{width:60px;}
+            .book-container{grid-template-columns:repeat(2,1fr)}
+            .reels-grid{grid-template-columns:repeat(2,1fr)}
+            .hot-rec-grid{grid-template-columns:repeat(2,1fr)}
+            .hero-layer-1{width:55%}
+            .hero-layer-3{width:65%}
+            .hero-layer-2-wrapper{width:30%}
+        }
+        @media (max-width:576px){
+            .book-container{grid-template-columns:1fr}
+            .collected-item{width:55px;}
+            .game-section{margin-top:0;}
+            .section-title{font-size:1.4rem;}
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳至主要內容</a>
+    <div id="sakura-container" aria-hidden="true"></div>
+    <div class="floating-buttons">
+        <a href="https://cptw.com.tw/" class="floating-btn" aria-label="返回官網" target="_blank" rel="noopener">
+            <img src="images/gohome.webp" alt="回官網">
+        </a>
+        <div class="back-to-top" id="backToTopBtn" aria-label="回到頂部">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+    </div>
+
+    <header class="hero" aria-label="活動主視覺">
+        <div class="hero-layers">
+            <img src="images/title1.webp" alt="翻開禁忌的另一頁" class="hero-element hero-layer-1">
+            <div class="hero-element hero-layer-2 hero-layer-2-wrapper"><img src="images/title2.webp" alt="日本的那些鬼怪" class="img-float-title"></div>
+            <img src="images/title3.webp" alt="從神話到民俗，解碼被歷史掩蓋的暗影密碼" class="hero-element hero-layer-3">
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="scroll-section" id="scroll-intro" aria-label="展覽前言">
+            <h2 class="sr-only">展覽前言</h2>
+            <div class="typewriter-content"><span id="typing-text"></span><span class="cursor"></span></div>
+        </section>
+
+        <section class="book-container" aria-label="主題推薦書單">
+            <article class="book-card"><img src="https://d1i8d984en2aby.cloudfront.net/products/2024/7500/conversions/9789570536010-product_preview.webp" alt="蛇妖、賽蓮、漩渦" class="book-cover"><h3 class="book-title">蛇妖、賽蓮、漩渦:來自海洋的冒險與神話</h3><p class="book-desc">全彩收錄超過一百幅世界各地圖書館與博物館珍藏圖像—繪畫、藝術品、中世紀書籍插圖、地圖、水手素描，也是令人愛不釋手、深具藝術性的圖文書</p><a href="https://cptw.com.tw/book/02010008/56" class="btn-buy" target="_blank" rel="noopener">立即購買</a></article>
+            <article class="book-card"><img src="https://d1i8d984en2aby.cloudfront.net/products/2024/7143/conversions/%E6%97%A5%E6%9C%AC%E7%9A%84%E9%82%A3%E4%BA%9B%E9%AC%BC%E6%80%AA-%E7%AB%8B%E9%AB%94%E6%9B%B8%E5%B0%81-product_preview.webp" alt="日本的那些鬼怪" class="book-cover"><h3 class="book-title">日本的那些鬼怪:從陰陽師、桃太郎到鬼滅之刃</h3><p class="book-desc">從古代中國傳入「鬼怪」的概念談起，一直到現代太平洋戰爭為止，日本鬼怪的意涵融合了中國元素、佛教概念、印度傳說，最後化成和式的鬼怪意象</p><a href="https://cptw.com.tw/book/07020040" class="btn-buy" target="_blank" rel="noopener">立即購買</a></article>
+            <article class="book-card"><img src="https://d1i8d984en2aby.cloudfront.net/products/cptw/4337/conversions/20220113110744_p1-product_preview.webp" alt="邪惡植物博覽會" class="book-cover"><h3 class="book-title">邪惡植物博覽會：辣椒、杜鵑、鬱金香……如何成為邪惡殺手</h3><p class="book-desc">誰能想像，隨處可見的雜草野花、餐盤上的細緻餐點、莊園裡的花苞熟果，讓人難以招架的艷麗植物，一不小心就會引來殺生危機？</p><a href="https://cptw.com.tw/book/03010073/56" class="btn-buy" target="_blank" rel="noopener">立即購買</a></article>
+            <article class="book-card"><img src="https://d1i8d984en2aby.cloudfront.net/products/2023/5327/conversions/9789570534955-product_preview.webp" alt="貓走過的近現代" class="book-cover"><h3 class="book-title">貓走過的近現代:歷史學家帶你一窺日本人與貓的愛恨情仇！</h3><p class="book-desc">從作祟妖怪到寵物明星，從捕鼠工具到家庭成員，紛紛擾擾的人類社會裡，貓咪始終漫步在你我身邊！跟著牠們小巧輕靈的腳步，見證歷史發展的軌跡！</p><a href="https://cptw.com.tw/book/07010045/56" class="btn-buy" target="_blank" rel="noopener">立即購買</a></article>
+            <article class="book-card"><img src="https://d1i8d984en2aby.cloudfront.net/products/2026/8451/conversions/01KRJY9HM5HYYZJ509N11DJE69-product_preview.webp" alt="世界郵票中的生肖：蛇" class="book-cover"><h3 class="book-title">【世界郵票中的生肖】蛇：再生、禁忌與智慧</h3><p class="book-desc">從日本到埃及、從印度到基督教世界，蛇的形象如何被各國郵票定格、轉譯與再創造？這是一本重新思考「蛇」的意義與力量的知識圖譜</p><a href="https://cptw.com.tw/book/07010069/54" class="btn-buy" target="_blank" rel="noopener">立即購買</a></article>
+            <article class="book-card"><img src="https://d1i8d984en2aby.cloudfront.net/products/2026/8387/conversions/01KPDDFJYYJAP4N8TAV31JJCX6-product_preview.webp" alt="世界郵票中的生肖：龍" class="book-cover"><h3 class="book-title">【世界郵票中的生肖】龍：權力、神聖與帝國</h3><p class="book-desc">還有一段權力、一種神格、一種對水的崇敬與畏懼。從大清海關到明治日本、從英領香港到基督教世界，龍的形象如何被各國郵票捕捉、轉譯與再定義？</p><a href="https://cptw.com.tw/book/07010068/54" class="btn-buy" target="_blank" rel="noopener">立即購買</a></article>
+            <article class="book-card"><img src="https://d1i8d984en2aby.cloudfront.net/products/2026/8303/conversions/01KM2CN31EN6BETEKD2N3C5SFA-product_preview.webp" alt="豆腐放洋史" class="book-cover"><h3 class="book-title">豆腐放洋史:從東方仙術到西方餐桌的千年旅程</h3><p class="book-desc">這是一部豆腐的全球文化史。從眾說紛紜的「發明」起源、仙術丹藥、鬼食供品，到性平指涉「吃豆腐」，更是近代中國社會主義革命的重要資金來源。</p><a href="https://cptw.com.tw/book/07020043/54" class="btn-buy" target="_blank" rel="noopener">立即購買</a></article>
+            <article class="book-card"><img src="https://d1i8d984en2aby.cloudfront.net/products/2025/7649/conversions/9789570536126-product_preview.webp" alt="三顆石頭就是一堵牆" class="book-cover"><h3 class="book-title">三顆石頭就是一堵牆:從圖坦卡門到納斯卡線</h3><p class="book-desc">你怎麼知道你挖的東西有多老？神秘的圖坦卡門是如何發掘出來的？透過帶領讀者參觀主要考古遺址，追溯了考古學從業餘愛好者到當今尖端科學的歷史。</p><a href="https://cptw.com.tw/book/07080004/56" class="btn-buy" target="_blank" rel="noopener">立即購買</a></article>
+        </section>
+
+        <section class="game-section" aria-labelledby="game-title">
+            <div style="text-align: center;"><h2 id="game-title" class="section-title">百鬼夜行：社畜變身測驗</h2></div>
+            <div class="game-container-inline" id="gameContainer">
+                <div class="game-card" id="screen-welcome">
+                    <h1 class="main-title">🏮 百鬼夜行 🏮</h1>
+                    <h2 class="subtitle">5 道試煉・覺醒你的妖怪魂</h2>
+                    <div class="cover-img-wrapper"><img src="images/game-00.webp" alt="封面圖" style="width:100%; border-radius:16px;"></div>
+                    <p class="description">農曆七月，陰陽交界。回答5個職場深層問題，變身水將根據你的內在怨念與智慧，賦予你專屬的妖怪型態！完成後可收藏妖怪圖鑑，分享給好友。</p>
+                    <button class="btn-action" onclick="startQuiz()">開始測驗</button>
+                </div>
+                <div class="game-card game-hidden" id="screen-quiz">
+                    <div class="cover-img-wrapper" style="margin-bottom: 20px;">
+                        <img src="images/game-00.webp" alt="測驗中" style="width:100%; border-radius:16px;">
+                    </div>
+                    <div class="progress-container"><div class="progress-bar" id="quiz-progress"></div></div>
+                    <div class="question-text" id="question-text"></div>
+                    <div class="options-list" id="quiz-options"></div>
+                </div>
+                <div class="game-card game-hidden" id="screen-result">
+                    <h1 class="main-title" id="result-title">妖怪覺醒</h1>
+                    <h2 class="subtitle">你的百鬼夜行型態</h2>
+                    <div class="card-flip-container" onclick="toggleCardFlip(this)">
+                        <div class="card-inner"><div class="card-back-face"><img src="images/game-00.webp" alt="背面"></div><div class="card-front-face"><img id="result-card-img" src="" alt="卡牌"></div></div>
+                    </div>
+                    <div style="text-align:center;"><div class="result-meta" id="result-meta-text"></div></div>
+                    <div class="result-story" id="result-story-text"></div>
+                    <div class="share-grid">
+                        <button class="share-btn line" onclick="shareEventPage('line')"><i class="fab fa-line"></i> LINE</button>
+                        <button class="share-btn fb" onclick="shareEventPage('facebook')"><i class="fab fa-facebook"></i> FB</button>
+                        <button class="share-btn threads" onclick="shareEventPage('threads')"><i class="fab fa-threads"></i> Threads</button>
+                        <button class="share-btn ig" onclick="shareEventPage('instagram')"><i class="fab fa-instagram"></i> IG</button>
+                    </div>
+                    <button onclick="downloadResultCard()" class="btn-action" style="background:#333; margin-top:10px;">📸 下載卡片</button>
+                    <button onclick="resetQuiz()" class="btn-action" style="background:#333; margin-top:10px;">重新測驗</button>
+                    <div class="collection-panel" id="collection-panel"></div>
+                </div>
+            </div>
+        </section>
+        <div id="imageModal" class="modal"><span class="close-modal">&times;</span><div class="modal-content" id="modalContent"></div></div>
+
+        <section class="carousel-section"><div class="carousel-container"><a href="https://cptw.com.tw/book/07020044/54" target="_blank" rel="noopener" class="carousel-slide active"><img src="images/bn-01.webp" alt="banner1"></a><a href="https://cptw.com.tw/book/07010069/54" target="_blank" rel="noopener" class="carousel-slide"><img src="images/bn-02.webp" alt="banner2"></a><a href="https://cptw.com.tw/campaign/27" target="_blank" rel="noopener" class="carousel-slide"><img src="images/bn-03.webp" alt="banner3"></a></div></section>
+        
+        <section class="social-section">
+            <div style="text-align:center;"><h2 class="section-title">探索更多神秘禁忌</h2></div>
+            <div class="reels-grid">
+                <!-- 第一個影片：置換為新的連結 967191872902287 -->
+                <div class="reel-wrapper">
+                    <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F967191872902287&show_text=false" allowfullscreen title="reel1"></iframe>
+                </div>
+                <!-- 第二個影片：置換為新的連結 2077638596106850 -->
+                <div class="reel-wrapper">
+                    <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2077638596106850&show_text=false" allowfullscreen title="reel2"></iframe>
+                </div>
+                <!-- 第三個影片：保持不變 -->
+                <div class="reel-wrapper">
+                    <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1267526792010620&show_text=false" allowfullscreen title="reel3"></iframe>
+                </div>
+            </div>
+            <div style="text-align:center;"><h2 class="section-title">商務熱門推薦</h2></div>
+            <div class="hot-rec-grid"><a href="https://cptw.com.tw/book/00010007/56" target="_blank" rel="noopener" class="rec-item-link"><div class="rec-card"><img src="https://d1i8d984en2aby.cloudfront.net/products/2026/8419/conversions/01KQRSVMEFJP5BYHKFEXDPAG6A-product_preview.webp" alt="深夜裡的圖書館"></div><h4 class="rec-title">深夜裡的圖書館</h4></a><a href="https://cptw.com.tw/book/06000148/56" target="_blank" rel="noopener" class="rec-item-link"><div class="rec-card"><img src="https://d1i8d984en2aby.cloudfront.net/products/cptw/3015/conversions/20180910132619_p2-product_preview.webp" alt="從神話到歷史"></div><h4 class="rec-title">從神話到歷史</h4></a><a href="https://cptw.com.tw/book/06020020/8" target="_blank" rel="noopener" class="rec-item-link"><div class="rec-card"><img src="https://d1i8d984en2aby.cloudfront.net/products/2024/7157/conversions/9789570535754-product_preview.webp" alt="王的莊稼"></div><h4 class="rec-title">王的莊稼</h4></a><a href="https://cptw.com.tw/book/06030159/8" target="_blank" rel="noopener" class="rec-item-link"><div class="rec-card"><img src="https://d1i8d984en2aby.cloudfront.net/products/2023/6540/conversions/9789570535419-preview_thumbnail.webp" alt="華人壯陽史"></div><h4 class="rec-title">華人壯陽史</h4></a></div>
+        </section>
+    </main>
+    <footer class="site-footer"><div class="footer-grid"><div class="footer-col"><h4>臺灣商務印書館</h4><p>📞 電話：02-2218-1417</p><p>✉️ 客服：ec@cptw.com.tw</p></div><div class="footer-col"><h4>關注商務社群</h4><div class="social-icons"><a href="https://www.facebook.com/ecptw/reels/" target="_blank" rel="noopener"><img src="images/facebook.webp" alt="fb"></a><a href="https://www.youtube.com/@InBook_1897" target="_blank" rel="noopener"><img src="images/youtube.webp" alt="yt"></a><a href="https://line.me/R/ti/p/@sbe1949f" target="_blank" rel="noopener"><img src="images/line.webp" alt="line"></a><a href="https://www.instagram.com/commercial.press.tw" target="_blank" rel="noopener"><img src="images/ig.webp" alt="ig"></a><a href="https://www.threads.com/@commercial.press.tw" target="_blank" rel="noopener"><img src="images/threads.webp" alt="threads"></a></div></div></div><div class="footer-bottom"><p>臺灣商務印書館 The Commercial Press, Ltd. 版權所有，翻拷必究</p></div></footer>
+    <div id="toast-msg" class="toast"></div>
+
+    <script>
+        // ================= 妖怪資料庫 =================
+        const YOKAI_LIB = {
+            sea_serpent: { title: "深淵蛇妖祭司", image: "images/game-01.webp", meta: "【職場隱喻】身處決策核心，時刻感到壓力的智者。", story: "你化身為「深淵蛇妖祭司」，坐在遠古的珊瑚寶座上。變身水釋放了你體內冰冷的智慧，你不再是為報表焦慮的社畜，而是深海權力的統治者。百鬼夜行中，冷靜的凝視讓群妖敬畏，一切煩惱都在深淵消融。" },
+            nekomata: { title: "森林貓又王", image: "images/game-02.webp", meta: "【職場隱喻】渴望掌握大局，擁有處理事務能力的管理才幹。", story: "你化身為「森林貓又王」。隨著一聲咆哮，尾巴清晰分叉。你優雅地坐在權力之巔，下方無數小貓組成的任務漩渦成了最好的幫手。百鬼夜行中，你走過的地方森林閃耀，處理煩惱就像處理貓砂一樣簡單。" },
+            kamaitachi: { title: "天空鎌鼬使者", image: "images/game-03.webp", meta: "【職場隱喻】追求極致效率，常在高壓 Deadline 中掙扎的先鋒。", story: "你化身為「天空鎌鼬使者」。雙手化為無堅不摧的鎌刀爪，你不再是被時間追趕的社畜，而是能割裂壓力的風之子。百鬼夜行中，你化作藍色閃電劃破夜空，割裂了困擾你的死線 KPI 雲層。" },
+            kyuubi: { title: "九尾狐幻術師", image: "images/game-04.webp", meta: "【職場隱喻】具備出眾才華與魅力，渴望全面被看見的創意才子。", story: "你化身為「九尾狐幻術師」。九條華麗的尾巴展開，那些曾經困擾你的嫉妒和批評，現在都為你的幻術增添魅力。百鬼夜行中，你以神祕光華和無敵魅力前行，你是才華的統治者，全場最耀眼。" },
+            orochi: { title: "八岐大蛇", image: "images/game-05.webp", meta: "【職場隱喻】承擔巨大責任、渴望徹底蛻變擺脫疲憊的隱藏核心。", story: "你化身為「八岐大蛇」。巨大的體型承載著所有責任，曾經疲憊的傷口如今轉化為無盡力量。百鬼夜行中，你九個頭顱讓其他妖怪戰慄。你是一切束縛的終結者，是最強大的古老神靈。" },
+            tengu: { title: "大天狗山嶽之王", image: "images/game-06.webp", meta: "【職場隱喻】天生極具將才風格、渴望絕對領導地位的獨行俠。", story: "你化身為「大天狗山嶽之王」。自信爆棚，巨大的黑翼展開。你優雅坐在寶座上，那些流言蜚語都為你所用。百鬼夜行中，你手持聖杯，以無敵自信和力量前行，是一切領導的終結者。" }
+        };
+        
+        // 5道題目
+        const questions = [
+            { text: "週一早晨，老闆突然宣布要把你的專案砍掉重練，你的第一反應是？", options: [
+                { text: "冷靜分析利弊，默默開始盤算新的資源配置", score: { sea_serpent: 2, tengu: 1 } },
+                { text: "心中狂風暴雨，想直接把簡報撕碎！", score: { kamaitachi: 2, orochi: 1 } },
+                { text: "優雅地微笑，心裡已經想好如何把爛攤子甩給隔壁部門", score: { nekomata: 2, kyuubi: 1 } },
+                { text: "直接站出來質疑老闆，展現你的霸氣", score: { tengu: 2, orochi: 1 } }
+            ] },
+            { text: "加班到深夜，印表機又卡紙，還發出詭異的紅光，你會？", options: [
+                { text: "暴力拍打，用物理方式超渡它", score: { tengu: 2, kamaitachi: 1 } },
+                { text: "認命地蹲下來修，默默承受業障", score: { orochi: 2, sea_serpent: 1 } },
+                { text: "拍照上傳群組，號召同事一起集氣", score: { kyuubi: 2, nekomata: 1 } },
+                { text: "冷靜繞過它，改用電子檔，展現極致效率", score: { kamaitachi: 2, sea_serpent: 1 } }
+            ] },
+            { text: "你在茶水間聽到同事在背後說你壞話，此時？", options: [
+                { text: "直接走過去用微笑施加壓力，讓他們閉嘴", score: { tengu: 2, nekomata: 1 } },
+                { text: "默默記在心裡的小本本，日後一次清算", score: { sea_serpent: 2, orochi: 1 } },
+                { text: "用超強魅惑術加入話題，把敵人變盟友", score: { kyuubi: 2, nekomata: 1 } },
+                { text: "當作耳邊風，繼續埋頭處理工作", score: { kamaitachi: 1, orochi: 1 } }
+            ] },
+            { text: "年終考核來臨，你希望獲得什麼評價？", options: [
+                { text: "不可或缺的核心決策者", score: { sea_serpent: 2, tengu: 1 } },
+                { text: "效率驚人的超級執行者", score: { kamaitachi: 2, nekomata: 1 } },
+                { text: "人見人愛的魅力明星", score: { kyuubi: 2, nekomata: 1 } },
+                { text: "掌控全局的終極領袖", score: { tengu: 2, orochi: 1 } }
+            ] },
+            { text: "如果能選一種超能力對付職場煩惱，你會選？", options: [
+                { text: "深海般的智慧，洞悉一切", score: { sea_serpent: 2, orochi: 1 } },
+                { text: "颶風般的速度，快速解決所有麻煩", score: { kamaitachi: 2, tengu: 1 } },
+                { text: "魅惑人心的幻術，讓老闆自動加薪", score: { kyuubi: 2, nekomata: 1 } },
+                { text: "統御萬物的威嚴，讓所有人聽命於你", score: { tengu: 2, sea_serpent: 1 } }
+            ] }
+        ];
+
+        let scores = { sea_serpent:0, nekomata:0, kamaitachi:0, kyuubi:0, orochi:0, tengu:0 };
+        let currentQ = 0;
+        let finalYokaiKey = "sea_serpent";
+        let collectedSet = new Set();
+
+        // 收藏功能
+        function loadCollection() { try { const saved = localStorage.getItem("yokai_collection"); if(saved) collectedSet = new Set(JSON.parse(saved)); renderCollection(); } catch(e){} }
+        function saveCollection() { localStorage.setItem("yokai_collection", JSON.stringify([...collectedSet])); }
+        function unlockYokai(key) { if(!collectedSet.has(key)){ collectedSet.add(key); saveCollection(); renderCollection(); showToast(`✨ 解鎖新妖怪：${YOKAI_LIB[key].title} ✨`); } }
+        function renderCollection() {
+            const panel = document.getElementById('collection-panel'); if(!panel) return;
+            const all = Object.keys(YOKAI_LIB);
+            let html = `<div class="collection-header"><h3>📖 百鬼收藏錄</h3><span>${collectedSet.size}/${all.length}</span></div><div class="collection-grid">`;
+            all.forEach(key => {
+                const y = YOKAI_LIB[key];
+                if(collectedSet.has(key)) {
+                    html += `<div class="collected-item" data-key="${key}"><img src="${y.image}" alt="${y.title}"><span>${y.title}</span></div>`;
+                } else {
+                    html += `<div class="collected-item" style="opacity:0.6;"><div style="aspect-ratio:1/1.2; background:#222; border-radius:8px; display:flex; align-items:center; justify-content:center;"><i class="fas fa-lock"></i></div><span>???</span></div>`;
+                }
+            });
+            html += `</div>`;
+            panel.innerHTML = html;
+            document.querySelectorAll('.collected-item[data-key]').forEach(el => {
+                el.addEventListener('click', (e) => { e.stopPropagation(); const k = el.getAttribute('data-key'); showModal(k); });
+            });
+        }
+        function showModal(key) {
+            const y = YOKAI_LIB[key];
+            const modal = document.getElementById('imageModal');
+            const content = document.getElementById('modalContent');
+            content.innerHTML = `<img src="${y.image}" alt="${y.title}"><h3>${y.title}</h3><p>${y.meta}</p><p>${y.story}</p>`;
+            modal.style.display = 'flex';
+        }
+        document.querySelector('.close-modal')?.addEventListener('click', () => document.getElementById('imageModal').style.display='none');
+        window.addEventListener('click', (e) => { if(e.target === document.getElementById('imageModal')) document.getElementById('imageModal').style.display='none'; });
+
+        function scrollToGame() { }
+
+        function startQuiz() { 
+            currentQ=0; 
+            scores = { sea_serpent:0, nekomata:0, kamaitachi:0, kyuubi:0, orochi:0, tengu:0 }; 
+            document.getElementById('screen-welcome').classList.add('game-hidden'); 
+            document.getElementById('screen-quiz').classList.remove('game-hidden'); 
+            renderQuestion(); 
+            scrollToGame();
+        }
+        function renderQuestion() {
+            if(currentQ >= questions.length) { calculateResult(); return; }
+            const q = questions[currentQ];
+            document.getElementById('quiz-progress').style.width = `${(currentQ/5)*100}%`;
+            document.getElementById('question-text').innerText = q.text;
+            const optsDiv = document.getElementById('quiz-options'); optsDiv.innerHTML = '';
+            q.options.forEach(opt => {
+                const btn = document.createElement('button'); btn.className = 'option-btn'; btn.innerText = opt.text;
+                btn.onclick = () => { for(let [k, v] of Object.entries(opt.score)) scores[k] = (scores[k]||0)+v; currentQ++; renderQuestion(); };
+                optsDiv.appendChild(btn);
+            });
+            scrollToGame();
+        }
+        function calculateResult() {
+            let maxScore = -1; let candidates = [];
+            for(let [k,v] of Object.entries(scores)) if(v > maxScore) { maxScore=v; candidates=[k]; } else if(v === maxScore) candidates.push(k);
+            finalYokaiKey = candidates[Math.floor(Math.random()*candidates.length)];
+            unlockYokai(finalYokaiKey);
+            const data = YOKAI_LIB[finalYokaiKey];
+            document.getElementById('result-title').innerText = data.title;
+            document.getElementById('result-card-img').src = data.image;
+            document.getElementById('result-meta-text').innerHTML = data.meta;
+            document.getElementById('result-story-text').innerHTML = data.story;
+            document.getElementById('screen-quiz').classList.add('game-hidden');
+            document.getElementById('screen-result').classList.remove('game-hidden');
+            document.querySelector('.card-flip-container')?.classList.remove('flipped');
+            scrollToGame();
+        }
+        function toggleCardFlip(el) { el.classList.toggle('flipped'); }
+        function resetQuiz() { 
+            document.getElementById('screen-result').classList.add('game-hidden'); 
+            document.getElementById('screen-welcome').classList.remove('game-hidden');
+            scrollToGame();
+        }
+
+        // 社群分享：自動帶入測驗結果文案
+        function shareEventPage(platform) {
+            const shareUrl = "https://www.cptw.com.tw/event/ghost-month";
+            let shareText = "";
+            if (finalYokaiKey && YOKAI_LIB[finalYokaiKey]) {
+                const yokaiName = YOKAI_LIB[finalYokaiKey].title;
+                shareText = `📖 我在《百鬼夜行：社畜變身測驗》化身為【${yokaiName}】！\n你敢來挑戰屬於你的妖怪型態嗎？測驗由此進：${shareUrl}`;
+            } else {
+                shareText = `📖 翻開禁忌的另一頁｜農曆七月主題特展\n\n你敢翻開這本書嗎？來玩「百鬼夜行：社畜變身測驗」，5道試煉找出你的妖怪型態！測完還可收藏妖怪圖鑑，活動書單同步優惠中 👉 ${shareUrl}`;
+            }
+            
+            if (platform === 'facebook') {
+                const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText.replace(/\n/g, ' '))}`;
+                window.open(fbUrl, '_blank', 'width=600,height=400');
+            } 
+            else if (platform === 'line') {
+                const lineUrl = `https://line.me/R/share?text=${encodeURIComponent(shareText)}`;
+                window.open(lineUrl, '_blank');
+            } 
+            else if (platform === 'threads') {
+                const threadsUrl = `https://www.threads.net/intent/post?text=${encodeURIComponent(shareText)}`;
+                window.open(threadsUrl, '_blank', 'width=600,height=600');
+            } 
+            else if (platform === 'instagram') {
+                navigator.clipboard.writeText(shareText).then(() => {
+                    showToast("✨ 文案已複製！請前往 IG 貼文或限動貼上分享 ✨");
+                }).catch(() => {
+                    showToast("複製失敗，請手動複製活動網址分享");
+                });
+            }
+        }
+
+        function downloadResultCard() {
+            if(!finalYokaiKey || !YOKAI_LIB[finalYokaiKey]) {
+                showToast("請先完成測驗再下載卡片");
+                return;
+            }
+            const imgUrl = YOKAI_LIB[finalYokaiKey].image;
+            const filename = `${YOKAI_LIB[finalYokaiKey].title}.webp`;
+            fetch(imgUrl)
+                .then(res => res.blob())
+                .then(blob => {
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    link.download = filename;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(link.href);
+                    showToast(`✅ 已下載「${YOKAI_LIB[finalYokaiKey].title}」卡片！`);
+                })
+                .catch(() => {
+                    showToast("下載失敗，請長按圖片儲存");
+                    window.open(imgUrl, '_blank');
+                });
+        }
+
+        function showToast(msg) { const t = document.getElementById('toast-msg'); t.innerText = msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 5000); }
+
+        // 頁面初始化
+        document.addEventListener("DOMContentLoaded", function() {
+            loadCollection();
+            const cards = document.querySelectorAll('.book-card'); const observer = new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*100); observer.unobserve(e.target);}});},{threshold:0.1}); cards.forEach(c=>observer.observe(c));
+            const sakura = document.getElementById('sakura-container'); for(let i=0;i<30;i++){ let p=document.createElement('div'); p.classList.add('petal'); let s=Math.random()*10+5,l=Math.random()*100,fd=Math.random()*5+10,sd=Math.random()*2+2,d=Math.random()*10; p.style.cssText=`width:${s}px;height:${s}px;left:${l}vw;animation-duration:${fd}s,${sd}s;animation-delay:${d}s,0s;`; sakura.appendChild(p); }
+            const slides = document.querySelectorAll('.carousel-slide'); let idx=0; if(slides.length) setInterval(()=>{ slides[idx].classList.remove('active'); idx=(idx+1)%slides.length; slides[idx].classList.add('active'); },4000);
+            const scrollSec = document.getElementById('scroll-intro'); const typingSpan = document.getElementById('typing-text'); const full = "當夜幕低垂，農曆七月的晚風吹起，你敢翻開這本書嗎？<br>「子夜讀妖」將帶領您從嚴謹的學術與文字中，尋找超自然現象的源頭。<br>歷史學家與哲學家將化身引路人，帶你一窺神秘現象背後的真實人性與社會歷史。"; let ti=0, typing=false; function typeWriter(){ if(ti<full.length){ if(full.substr(ti,4)==="<br>"){ typingSpan.innerHTML+="<br>"; ti+=4; }else{ typingSpan.innerHTML+=full.charAt(ti); ti++; } setTimeout(typeWriter,120); } } const obs = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting && !typing){ e.target.classList.add('visible'); typing=true; setTimeout(typeWriter,800); obs.unobserve(e.target); } }); },{threshold:0.5}); if(scrollSec) obs.observe(scrollSec);
+            document.getElementById('backToTopBtn')?.addEventListener('click',()=>{ window.scrollTo({top:0,behavior:'smooth'}); });
+        });
+    </script>
+</body>
+</html>
