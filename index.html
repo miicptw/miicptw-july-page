@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>中元書齋 翻開禁忌的另一頁:農曆七月主題特展 | 臺灣商務印書館</title>
     
-    <!-- SEO & GEO Tags -->
     <meta name="description" content="當夜幕低垂，農曆七月的晚風吹起，你敢翻開這本書嗎？臺灣商務印書館農曆七月主題特展，從神話到民俗，解碼那些被歷史掩蓋的暗影密碼。">
     <meta name="keywords" content="臺灣商務印書館, 農曆七月, 鬼怪, 神話, 特展, 閱讀, 歷史">
     <meta name="robots" content="index, follow, max-image-preview:large">
@@ -13,7 +12,6 @@
     <meta name="geo.region" content="TW">
     <meta name="geo.placename" content="Taiwan">
     
-    <!-- Open Graph for Social Media -->
     <meta property="og:title" content="中元書齋 翻開禁忌的另一頁｜農曆七月主題特展">
     <meta property="og:description" content="來玩「百鬼夜行：社畜變身測驗」，5道試煉找出你的妖怪型態！收藏圖鑑，享活動書單優惠。">
     <meta property="og:image" content="images/share-card.avif">
@@ -23,7 +21,6 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     
-    <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&display=swap" rel="stylesheet">
@@ -201,7 +198,7 @@
         .game-card { background: var(--g-panel-bg); width: 100%; max-width: 500px; border-radius: 28px; padding: 26px 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px); margin: 0 auto; color: var(--g-text-light); }
         .game-card .main-title { font-size: 1.8rem; color: var(--g-accent-gold); text-align: center; margin-bottom: 8px; }
         .game-card .subtitle { font-size: 1rem; color: var(--g-accent-crimson); text-align: center; margin-bottom: 20px; letter-spacing: 2px; }
-        .btn-action { display: block; width: 100%; background: linear-gradient(135deg, var(--g-accent-crimson), #c1121f); color: white; border: none; padding: 14px; font-size: 1.1rem; font-weight: 700; border-radius: 60px; cursor: pointer; text-align: center; }
+        .btn-action { display: block; width: 100%; background: linear-gradient(135deg, var(--g-accent-crimson), #c1121f); color: white; border: none; padding: 14px; font-size: 1.1rem; font-weight: 700; border-radius: 60px; cursor: pointer; text-align: center; text-decoration: none; }
         .progress-container { width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 10px; margin: 15px 0; }
         .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--g-accent-crimson), var(--g-accent-gold)); border-radius: 10px; transition: width 0.3s; }
         .question-text { font-size: 1.3rem; font-weight: 700; margin: 15px 0; line-height: 1.4; }
@@ -356,7 +353,6 @@
                     <div style="text-align:center;"><div class="result-meta" id="result-meta-text"></div></div>
                     <div class="result-story" id="result-story-text"></div>
                     
-                    <!-- 推薦閱讀區塊 -->
                     <div class="result-book-rec" id="result-book-rec">
                         <h3><i class="fas fa-book-open"></i> 推薦閱讀</h3>
                         <a id="result-book-link" href="#" target="_blank" rel="noopener"></a>
@@ -370,18 +366,16 @@
                     </div>
                     <button type="button" onclick="downloadResultCard()" class="btn-action" style="background:#333; margin-top:10px;">📸 下載卡片</button>
                     <button type="button" onclick="resetQuiz()" class="btn-action" style="background:#333; margin-top:10px;">重新測驗</button>
+                    <a href="https://www.cptw.com.tw/" target="_blank" rel="noopener" class="btn-action" style="background: linear-gradient(135deg, #d4af37, #b8860b); color: #000; margin-top:10px; text-decoration: none;">✨ 加入會員享更多優惠折扣</a>
                     <div class="collection-panel" id="collection-panel"></div>
                 </div>
             </div>
         </section>
         
-        <!-- 獨立書籍重點介紹區塊 -->
         <section class="featured-books-section" aria-label="重點書籍介紹">
             
-            <!-- 重點書 1 (含 YT 影片崁入) -->
             <article class="featured-book-item center-layout" itemscope itemtype="https://schema.org/Book">
                 
-                <!-- SEO 與 GEO 的隱藏語法 (針對這本書的精確結構化資料) -->
                 <meta itemprop="name" content="日本的那些鬼怪：從陰陽師、桃太郎到鬼滅之刃，鬼的形象及其變遷">
                 <meta itemprop="author" content="小山聰子">
                 <meta itemprop="publisher" content="臺灣商務印書館">
@@ -419,14 +413,13 @@
                     <a href="https://cptw.com.tw/book/07020040" class="btn-buy" target="_blank" rel="noopener" itemprop="url">了解更多 / 立即購買</a>
                 </div>
                 
-                <!-- 崁入影片 RWD 容器 -->
                 <div class="video-container">
                     <iframe src="https://www.youtube-nocookie.com/embed/6C7l6kS81w0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </article>
 
-            <!-- 重點書 2 -->
             <article class="featured-book-item center-layout" itemscope itemtype="https://schema.org/Book">
+                
                 <meta itemprop="name" content="蛇妖、賽蓮、漩渦：來自海洋的冒險與神話">
                 <meta itemprop="author" content="格里．史密斯(Gerry Smyth)">
                 <meta itemprop="publisher" content="臺灣商務印書館">
@@ -462,8 +455,8 @@
                 </div>
             </article>
 
-            <!-- 重點書 3 -->
             <article class="featured-book-item center-layout" itemscope itemtype="https://schema.org/Book">
+                
                 <meta itemprop="name" content="【世界郵票中的生肖】蛇：再生、禁忌與智慧，為何蛇既是神，也是詛咒">
                 <meta itemprop="author" content="內藤陽介">
                 <meta itemprop="publisher" content="臺灣商務印書館">
