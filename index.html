@@ -7,7 +7,7 @@
     
     <!-- SEO & GEO Tags -->
     <meta name="description" content="當夜幕低垂，農曆七月的晚風吹起，你敢翻開這本書嗎？臺灣商務印書館農曆七月主題特展，從神話到民俗，解碼那些被歷史掩蓋的暗影密碼。">
-    <meta name="keywords" content="臺灣商務印書館, 農曆七月, 鬼怪, 神話, 特展, 閱讀, 歷史, 日本歷史, 鬼滅之刃, 陰陽師, 桃太郎, 獵奇冷知識">
+    <meta name="keywords" content="臺灣商務印書館, 農曆七月, 鬼怪, 神話, 特展, 閱讀, 歷史">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="author" content="臺灣商務印書館">
     <meta name="geo.region" content="TW">
@@ -109,16 +109,12 @@
         .featured-book-item { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 16px; padding: 30px; display: flex; gap: 30px; align-items: center; transition: transform 0.3s ease, box-shadow 0.3s ease; backdrop-filter: blur(5px); }
         .featured-book-item:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-color: var(--gold); }
         .featured-book-content { flex: 1; display: flex; flex-direction: column; align-items: flex-start; width: 100%; }
-        .featured-book-cover { width: 180px; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); object-fit: contain; }
         .featured-book-title { color: var(--gold); font-size: 1.4rem; margin-bottom: 12px; line-height: 1.4; word-break: break-word; }
-        .featured-book-desc { color: #ddd; font-size: 1rem; margin-bottom: 20px; line-height: 1.8; text-align: justify; }
 
-        /* 特殊影片排版區塊 (封面置頂 + 展開收合) */
-        .featured-book-item.video-layout { flex-direction: column; align-items: center; text-align: center; }
-        .featured-book-cover.top-cover { width: 100%; max-width: 250px; margin: 0 auto 20px; display: block; }
-        .video-layout .featured-book-content { align-items: center; }
-        .hashtags-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 20px; }
-        .hashtag { background: rgba(212, 175, 55, 0.15); color: var(--gold); padding: 4px 10px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; border: 1px solid rgba(212, 175, 55, 0.3); }
+        /* 特殊排版區塊 (封面置頂 + 展開收合) */
+        .featured-book-item.center-layout { flex-direction: column; align-items: center; text-align: center; }
+        .featured-book-cover.top-cover { width: 100%; max-width: 250px; margin: 0 auto 20px; display: block; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); object-fit: contain; }
+        .center-layout .featured-book-content { align-items: center; }
         
         .collapsible-text {
             width: 100%;
@@ -127,8 +123,11 @@
             position: relative;
             transition: max-height 0.6s ease-in-out;
             text-align: left;
+            color: #ddd; 
+            font-size: 1rem; 
+            line-height: 1.8;
         }
-        .collapsible-text.expanded { max-height: 2500px; /* 展開後的最大高度 */ }
+        .collapsible-text.expanded { max-height: 3500px; /* 展開後的最大高度 */ }
         .collapsible-text::after {
             content: "";
             position: absolute;
@@ -276,10 +275,10 @@
             .hot-rec-grid { grid-template-columns: repeat(2, 1fr); }
             
             /* 一般區塊的手機版優化 */
-            .featured-book-item:not(.video-layout) { flex-direction: column; text-align: center; padding: 20px; }
-            .featured-book-item:not(.video-layout) .featured-book-cover { width: 50%; max-width: 180px; margin: 0 auto; }
-            .featured-book-item:not(.video-layout) .featured-book-content { align-items: center; }
-            .featured-book-item:not(.video-layout) .featured-book-desc { text-align: left; }
+            .featured-book-item:not(.center-layout) { flex-direction: column; text-align: center; padding: 20px; }
+            .featured-book-item:not(.center-layout) .featured-book-cover { width: 50%; max-width: 180px; margin: 0 auto; }
+            .featured-book-item:not(.center-layout) .featured-book-content { align-items: center; }
+            .featured-book-item:not(.center-layout) .featured-book-desc { text-align: left; }
         }
 
         @media (max-width: 576px) {
@@ -376,31 +375,28 @@
             </div>
         </section>
         
-        <!-- 獨立書籍重點介紹區塊 (含 YT 影片崁入) -->
+        <!-- 獨立書籍重點介紹區塊 -->
         <section class="featured-books-section" aria-label="重點書籍介紹">
             
-            <!-- 重點書 1 + 崁入影片 (使用封面置頂與展開排版) -->
-            <article class="featured-book-item video-layout">
-                <!-- 封面置頂 -->
-                <img src="images/title2.webp" alt="日本的那些鬼怪 書影" class="featured-book-cover top-cover">
+            <!-- 重點書 1 (含 YT 影片崁入) -->
+            <article class="featured-book-item center-layout" itemscope itemtype="https://schema.org/Book">
+                
+                <!-- SEO 與 GEO 的隱藏語法 (針對這本書的精確結構化資料) -->
+                <meta itemprop="name" content="日本的那些鬼怪：從陰陽師、桃太郎到鬼滅之刃，鬼的形象及其變遷">
+                <meta itemprop="author" content="小山聰子">
+                <meta itemprop="publisher" content="臺灣商務印書館">
+                <meta itemprop="keywords" content="日本歷史, 鬼滅之刃, 陰陽師, 桃太郎, 獵奇冷知識, 台灣商務印書館">
+                <meta itemprop="inLanguage" content="zh-TW">
+                <meta itemprop="contentLocation" content="Taiwan">
+
+                <img src="https://d1i8d984en2aby.cloudfront.net/products/2024/7144/conversions/%E6%97%A5%E6%9C%AC%E7%9A%84%E9%82%A3%E4%BA%9B%E9%AC%BC%E6%80%AA-%E5%B9%B3%E9%9D%A2%E6%9B%B8%E5%B0%81-product_preview.webp" alt="日本的那些鬼怪 書影" class="featured-book-cover top-cover" itemprop="image">
                 
                 <div class="featured-book-content">
                     <h3 class="featured-book-title" style="text-align: center; width: 100%;">日本的那些鬼怪：從陰陽師、桃太郎到鬼滅之刃，鬼的形象及其變遷</h3>
-                    
-                    <!-- SEO 關鍵字標籤 -->
-                    <div class="hashtags-container">
-                        <span class="hashtag">#日本歷史</span>
-                        <span class="hashtag">#鬼滅之刃</span>
-                        <span class="hashtag">#陰陽師</span>
-                        <span class="hashtag">#桃太郎</span>
-                        <span class="hashtag">#獵奇冷知識</span>
-                        <span class="hashtag">#台灣商務印書館</span>
-                    </div>
 
                     <p style="color: var(--gold); margin-bottom: 20px; text-align: center; width: 100%;"><strong>作者：</strong>小山聰子 ｜ <strong>譯者：</strong>許郁文</p>
                     
-                    <!-- 展開 / 收合文字區塊 -->
-                    <div class="featured-book-desc collapsible-text" id="desc-ghost">
+                    <div class="featured-book-desc collapsible-text" id="desc-ghost" itemprop="description">
                         <p><strong>👻 鬼的起源與在地化：</strong><br>日本「鬼」的概念最初是從古代中國傳入。其後續的意涵融合了中國元素、佛教概念與印度傳說，並經過日本社會的吸收與改造，最終化為獨特的日式鬼怪意象。</p>
                         
                         <p style="margin-top: 10px;"><strong>👻 從真實恐懼到娛樂題材的轉變：</strong><br>在古代與中世紀，鬼被視為真實存在的恐怖威脅。當時的人們相信疾病是由鬼（如疫鬼）引起的，因此會尋求陰陽師或和尚來驅邪、誦經。直到近代，鬼才逐漸轉變為小說、新聞及動漫（如《鬼滅之刃》）中的獵奇與娛樂題材。</p>
@@ -416,12 +412,11 @@
                         </ul>
                     </div>
 
-                    <!-- 展開按鈕 -->
                     <button type="button" class="toggle-more-btn" onclick="toggleBookDesc('desc-ghost', this)">
                         展開閱讀更多 <i class="fas fa-chevron-down"></i>
                     </button>
 
-                    <a href="https://cptw.com.tw/book/07020040" class="btn-buy" target="_blank" rel="noopener">了解更多 / 立即購買</a>
+                    <a href="https://cptw.com.tw/book/07020040" class="btn-buy" target="_blank" rel="noopener" itemprop="url">了解更多 / 立即購買</a>
                 </div>
                 
                 <!-- 崁入影片 RWD 容器 -->
@@ -431,22 +426,78 @@
             </article>
 
             <!-- 重點書 2 -->
-            <article class="featured-book-item">
-                <img src="https://d1i8d984en2aby.cloudfront.net/products/2024/7500/conversions/9789570536010-product_preview.webp" alt="蛇妖、賽蓮、漩渦 書影" class="featured-book-cover">
+            <article class="featured-book-item center-layout" itemscope itemtype="https://schema.org/Book">
+                <meta itemprop="name" content="蛇妖、賽蓮、漩渦：來自海洋的冒險與神話">
+                <meta itemprop="author" content="格里．史密斯(Gerry Smyth)">
+                <meta itemprop="publisher" content="臺灣商務印書館">
+                <meta itemprop="keywords" content="蛇妖賽蓮漩渦, 海洋神話, 民間傳說, 獵奇冷知識, 怪獸與神話, 臺灣商務印書館">
+                <meta itemprop="inLanguage" content="zh-TW">
+                <meta itemprop="contentLocation" content="Taiwan">
+
+                <img src="https://d1i8d984en2aby.cloudfront.net/products/2024/7501/conversions/9789570536010-product_preview.webp" alt="蛇妖、賽蓮、漩渦 書影" class="featured-book-cover top-cover" itemprop="image">
+                
                 <div class="featured-book-content">
-                    <h3 class="featured-book-title">蛇妖、賽蓮、漩渦：來自海洋的冒險與神話</h3>
-                    <p class="featured-book-desc">全彩收錄超過一百幅世界各地圖書館與博物館珍藏圖像—繪畫、藝術品、中世紀書籍插圖、地圖、水手素描，也是令人愛不釋手、深具藝術性的圖文書。探索深海中令人畏懼又著迷的神秘力量。</p>
-                    <a href="https://cptw.com.tw/book/02010008/56" class="btn-buy" target="_blank" rel="noopener">了解更多 / 立即購買</a>
+                    <h3 class="featured-book-title" style="text-align: center; width: 100%;">蛇妖、賽蓮、漩渦：來自海洋的冒險與神話</h3>
+
+                    <p style="color: var(--gold); margin-bottom: 20px; text-align: center; width: 100%;"><strong>作者：</strong>格里．史密斯(Gerry Smyth) ｜ <strong>譯者：</strong>羅亞琪</p>
+                    
+                    <div class="featured-book-desc collapsible-text" id="desc-ocean" itemprop="description">
+                        <p><strong>🌊 跨越文化的海洋神話：</strong><br>全書共分為 7 大章，收錄 28 則來自世界各地的海洋故事與神話。作者廣泛蒐羅了美洲原住民、加勒比海、玻里尼西亞、波斯、印度、斯堪地那維亞及歐洲等多元文化中的神話與民間傳說。</p>
+                        
+                        <p style="margin-top: 10px;"><strong>🌊 絕美的桌邊藝術品：</strong><br>這本書最過分的是，裡面全彩收錄了超過 100 幅世界各國博物館、圖書館珍藏的中世紀插圖、復古地圖和水手素描！兼具閱讀與藝術收藏價值。</p>
+                        
+                        <h4 style="color: var(--gold); margin: 20px 0 10px 0; font-size: 1.1rem; border-bottom: 1px dashed rgba(255, 215, 0, 0.4); padding-bottom: 5px;">【那些顛覆想像的海洋冷知識】</h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 10px;">👉 <strong>青蛙界的老祖宗英雄：</strong>在「大地潛水者」神話中，天女從雲端掉落深淵，水獺、麝鼠、海狸潛水找土壤都失敗溺斃，最後是一隻老癩蝦蟆成功游到深海大樹根部，臨死前把土壤吐在巨龜背上，才向外擴張變成了我們現在住的陸地！</li>
+                            <li style="margin-bottom: 10px;">👉 <strong>海洋諸神大亂鬥：</strong>從大家熟知的希臘海神波賽頓、迪士尼動畫看過的毛伊，到北歐的尼約德、因紐特人的賽德娜，每個神祇的性格都反映了該民族獨特的文化特質。</li>
+                            <li style="margin-bottom: 10px;">👉 <strong>海水為什麼是鹹的？：</strong>書裡不只講冒險，還收錄了「魔鬼讓海水變鹹」等世界各地的趣味民間解答。</li>
+                        </ul>
+                    </div>
+
+                    <button type="button" class="toggle-more-btn" onclick="toggleBookDesc('desc-ocean', this)">
+                        展開閱讀更多 <i class="fas fa-chevron-down"></i>
+                    </button>
+
+                    <a href="https://cptw.com.tw/book/02010008/56" class="btn-buy" target="_blank" rel="noopener" itemprop="url">了解更多 / 立即購買</a>
                 </div>
             </article>
 
             <!-- 重點書 3 -->
-            <article class="featured-book-item">
-                <img src="https://d1i8d984en2aby.cloudfront.net/products/2026/8451/conversions/01KRJY9HM5HYYZJ509N11DJE69-product_preview.webp" alt="世界郵票中的生肖：蛇 書影" class="featured-book-cover">
+            <article class="featured-book-item center-layout" itemscope itemtype="https://schema.org/Book">
+                <meta itemprop="name" content="【世界郵票中的生肖】蛇：再生、禁忌與智慧，為何蛇既是神，也是詛咒">
+                <meta itemprop="author" content="內藤陽介">
+                <meta itemprop="publisher" content="臺灣商務印書館">
+                <meta itemprop="keywords" content="世界郵票中的生肖, 蛇, 郵便學, 內藤陽介, 醫神雙蛇杖, 鏡餅祕密, 臺灣商務印書館">
+                <meta itemprop="inLanguage" content="zh-TW">
+                <meta itemprop="contentLocation" content="Taiwan">
+
+                <img src="https://d1i8d984en2aby.cloudfront.net/products/2026/8450/conversions/01KRJY9HGRBYYZDE5FXVAT6QEV-product_preview.webp" alt="世界郵票中的生肖：蛇 書影" class="featured-book-cover top-cover" itemprop="image">
+                
                 <div class="featured-book-content">
-                    <h3 class="featured-book-title">【世界郵票中的生肖】蛇：再生、禁忌與智慧</h3>
-                    <p class="featured-book-desc">從日本到埃及、從印度到基督教世界，蛇的形象如何被各國郵票定格、轉譯與再創造？這是一本重新思考「蛇」的意義與力量的知識圖譜，帶領讀者看見方寸之間的豐富文化交融。</p>
-                    <a href="https://cptw.com.tw/book/07010069/54" class="btn-buy" target="_blank" rel="noopener">了解更多 / 立即購買</a>
+                    <h3 class="featured-book-title" style="text-align: center; width: 100%;">【世界郵票中的生肖】蛇：再生、禁忌與智慧，為何蛇既是神，也是詛咒</h3>
+
+                    <p style="color: var(--gold); margin-bottom: 20px; text-align: center; width: 100%;"><strong>作者：</strong>內藤陽介 ｜ <strong>譯者：</strong>葉静嘉</p>
+                    
+                    <div class="featured-book-desc collapsible-text" id="desc-snake" itemprop="description">
+                        <p><strong>🐍 蛇的矛盾雙重性：</strong><br>世界上大概沒有任何一種生物，能像「蛇」一樣同時收穫人類極端的崇拜與恐懼。牠既是神，也是詛咒；既代表重生，也代表死亡。梳理「蛇」在人類文明中交纏的極端意義，牠既是新生、豐饒、長生與守護的靈獸，同時也是誘惑、死亡、詛咒與敵意的象徵。</p>
+                        
+                        <p style="margin-top: 10px;"><strong>🐍 醫療標誌的起源：</strong><br>古希臘醫神阿斯克勒庇俄斯因目睹蛇能以草葉救活同伴，自此手持「纏蛇權杖」行醫。這支象徵蛻皮重生的權杖，一路演變成今日世界衛生組織（WHO）的全球醫療標誌。</p>
+
+                        <p style="margin-top: 10px;"><strong>🐍 日常習俗中的蛇神痕跡：</strong><br>揭開日本傳統文化的隱藏祕密，例如新年供奉的「鏡餅」（側面如蛇盤踞、上方如蛇眼）與「注連繩」，其實都承載著古人對蛇神的繁衍與再生想像。</p>
+                        
+                        <h4 style="color: var(--gold); margin: 20px 0 10px 0; font-size: 1.1rem; border-bottom: 1px dashed rgba(255, 215, 0, 0.4); padding-bottom: 5px;">【那些顛覆認知的蛇蛇冷知識】</h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 10px;">👉 <strong>日本新年鏡餅，其實是疊起來的蛇？：</strong>日本過年必備的「鏡餅」，側面看起來像蛇盤踞，頂端圓圓的其實是「蛇眼」！連門口掛的「注連繩」也是蛇的化身，古人其實是在拜蛇神的生命力！</li>
+                            <li style="margin-bottom: 10px;">👉 <strong>WHO標誌上的那條蛇，是個「抄襲狂」？：</strong>相傳古希臘醫神阿斯克勒庇俄斯，因為偷看到一條蛇用草葉讓同伴「起死回生」，於是決定把蛇纏在權杖上當成行醫招牌。結果這根權杖就這樣一路被「複製貼上」，變成了現代全球醫療的通用標誌！</li>
+                            <li style="margin-bottom: 10px;">👉 <strong>萬物皆可變，看郵票就知道！：</strong>郵票不只是郵資，更是國家合法的「政治宣傳單」！在佛教裡牠是多產護法，在埃及是法老的守護神，但在《聖經》裡卻成了騙夏娃吃蘋果的腹黑反派；打仗時，各國還特別喜歡把敵國元首畫成毒蛇來激勵士氣！</li>
+                        </ul>
+                    </div>
+
+                    <button type="button" class="toggle-more-btn" onclick="toggleBookDesc('desc-snake', this)">
+                        展開閱讀更多 <i class="fas fa-chevron-down"></i>
+                    </button>
+
+                    <a href="https://cptw.com.tw/book/07010069/54" class="btn-buy" target="_blank" rel="noopener" itemprop="url">了解更多 / 立即購買</a>
                 </div>
             </article>
             
