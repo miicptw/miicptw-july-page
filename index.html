@@ -7,7 +7,7 @@
     
     <!-- SEO & GEO Tags -->
     <meta name="description" content="當夜幕低垂，農曆七月的晚風吹起，你敢翻開這本書嗎？臺灣商務印書館農曆七月主題特展，從神話到民俗，解碼那些被歷史掩蓋的暗影密碼。">
-    <meta name="keywords" content="臺灣商務印書館, 農曆七月, 鬼怪, 神話, 特展, 閱讀, 歷史">
+    <meta name="keywords" content="臺灣商務印書館, 農曆七月, 鬼怪, 神話, 特展, 閱讀, 歷史, 日本歷史, 鬼滅之刃, 陰陽師, 桃太郎, 獵奇冷知識">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="author" content="臺灣商務印書館">
     <meta name="geo.region" content="TW">
@@ -17,7 +17,7 @@
     <meta property="og:title" content="中元書齋 翻開禁忌的另一頁｜農曆七月主題特展">
     <meta property="og:description" content="來玩「百鬼夜行：社畜變身測驗」，5道試煉找出你的妖怪型態！收藏圖鑑，享活動書單優惠。">
     <meta property="og:image" content="images/share-card.avif">
-    <meta property="og:url" content="https://www.cptw.com.tw/event/ghost-month"> <!-- 分享活動頁連結 -->
+    <meta property="og:url" content="https://www.cptw.com.tw/event/ghost-month">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="zh_TW">
     <meta property="og:image:width" content="1200">
@@ -47,7 +47,7 @@
             --g-text-muted: #a0a0b0;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: "Noto Sans TC", "微軟正黑體", sans-serif; background-color: var(--primary-bg); color: var(--text-light); line-height: 1.6; overflow-x: hidden; }
+        body { font-family: "Noto Sans TC", "微軟正黑體", sans-serif; background-color: var(--primary-bg); color: var(--text-light); line-height: 1.6; overflow-x: hidden; word-wrap: break-word; overflow-wrap: break-word; }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
         img { max-width: 100%; height: auto; display: block; }
@@ -69,7 +69,7 @@
         #sakura-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999; overflow: hidden; }
         .petal { position: absolute; top: -10%; background-color: #ffb7c5; border-radius: 100% 0 100% 0; opacity: .6; animation: fall linear infinite, sway ease-in-out infinite alternate; }
         
-        /* 浮動按鈕：拉大間距防止誤按 */
+        /* 浮動按鈕 */
         .floating-buttons { position: fixed; bottom: 40px; right: 40px; z-index: 9999; display: flex; flex-direction: column; gap: 24px; align-items: center; }
         .floating-btn { display: block; width: 114px; height: 114px; transition: transform .3s cubic-bezier(.175,.885,.32,1.275); animation: floatingAnimBtn 5s ease-in-out infinite; background: transparent; border: none; cursor: pointer; }
         .floating-btn img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3)); }
@@ -78,7 +78,7 @@
         .back-to-top i { font-size: 32px; color: var(--gold); }
         .back-to-top:hover { transform: scale(1.12); background: var(--accent-color); }
         
-        /* ================= 區塊樣式 ================= */
+        /* 區塊樣式 */
         .hero { position: relative; width: 100%; height: 85vh; min-height: 700px; background: url('images/hero-bg.webp') center/cover no-repeat; overflow: hidden; }
         .hero-layers { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 1200px; height: 100%; z-index: 2; }
         .hero-element { position: absolute; opacity: 0; }
@@ -87,7 +87,6 @@
         .hero-layer-2 { animation: fadeIn 1.5s ease forwards 1.3s; }
         .img-float-title { animation: floatingAnimTitle 3s ease-in-out infinite; }
         .hero-layer-3 { top: 52%; left: 13%; width: 90%; max-width: 446px; animation: fadeIn 1.5s ease forwards 2.1s; }
-        
         
         .scroll-section { width: 100%; max-width: 900px; margin: 1rem auto 4rem; padding: 5rem 3rem; background: url('images/scroll-bg.webp') center/100% 100% no-repeat; min-height: 350px; display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(50px); transition: all 1s ease-out; position: relative; z-index: 10; }
         .scroll-section.visible { opacity: 1; transform: translateY(0); }
@@ -105,6 +104,65 @@
         .btn-buy { display: inline-block; background-color: var(--accent-color); color: #fff; padding: 10px 28px; border-radius: 30px; font-weight: bold; transition: var(--transition); }
         .btn-buy:hover { background-color: var(--accent-hover); transform: scale(1.1); box-shadow: 0 5px 15px rgba(0,68,204,.4); }
         
+        /* 獨立書籍重點介紹區塊 CSS */
+        .featured-books-section { max-width: 1000px; margin: 2rem auto 4rem; padding: 0 20px; display: flex; flex-direction: column; gap: 40px; }
+        .featured-book-item { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 16px; padding: 30px; display: flex; gap: 30px; align-items: center; transition: transform 0.3s ease, box-shadow 0.3s ease; backdrop-filter: blur(5px); }
+        .featured-book-item:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-color: var(--gold); }
+        .featured-book-content { flex: 1; display: flex; flex-direction: column; align-items: flex-start; width: 100%; }
+        .featured-book-cover { width: 180px; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); object-fit: contain; }
+        .featured-book-title { color: var(--gold); font-size: 1.4rem; margin-bottom: 12px; line-height: 1.4; word-break: break-word; }
+        .featured-book-desc { color: #ddd; font-size: 1rem; margin-bottom: 20px; line-height: 1.8; text-align: justify; }
+
+        /* 特殊影片排版區塊 (封面置頂 + 展開收合) */
+        .featured-book-item.video-layout { flex-direction: column; align-items: center; text-align: center; }
+        .featured-book-cover.top-cover { width: 100%; max-width: 250px; margin: 0 auto 20px; display: block; }
+        .video-layout .featured-book-content { align-items: center; }
+        .hashtags-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 20px; }
+        .hashtag { background: rgba(212, 175, 55, 0.15); color: var(--gold); padding: 4px 10px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; border: 1px solid rgba(212, 175, 55, 0.3); }
+        
+        .collapsible-text {
+            width: 100%;
+            max-height: 180px; /* 預設只顯示前幾行的高度 */
+            overflow: hidden;
+            position: relative;
+            transition: max-height 0.6s ease-in-out;
+            text-align: left;
+        }
+        .collapsible-text.expanded { max-height: 2500px; /* 展開後的最大高度 */ }
+        .collapsible-text::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            /* 使用近似背景色的漸層來做出消失感 */
+            background: linear-gradient(to bottom, rgba(25, 31, 45, 0), rgba(25, 31, 45, 1));
+            pointer-events: none;
+            transition: opacity 0.4s;
+        }
+        .collapsible-text.expanded::after { opacity: 0; }
+        .toggle-more-btn {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            margin: 15px auto 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        .toggle-more-btn:hover { background: var(--gold); color: #000; transform: translateY(-2px); }
+        
+        /* 響應式影片容器 */
+        .video-container { position: relative; padding-bottom: 56.25%; /* 16:9 比例 */ height: 0; overflow: hidden; width: 100%; border-radius: 12px; margin-top: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        /* -------------------------- */
+
         .carousel-section { max-width: 1200px; margin: 4rem auto; padding: 0 20px; }
         .carousel-container { position: relative; width: 100%; max-width: 1160px; margin: 0 auto; aspect-ratio: 1160/347; border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.5); }
         .carousel-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity .8s ease-in-out; display: block; }
@@ -138,7 +196,7 @@
         .footer-bottom { text-align: center; color: #5a6b85; font-size: .8rem; padding-top: 2rem; border-top: 1px solid #2a364a; }
         
         /* 遊戲區塊 */
-        .game-section { max-width: 1200px; margin: 2rem auto 6rem; padding: 0 20px; }
+        .game-section { max-width: 1200px; margin: 2rem auto; padding: 0 20px; }
         .game-container-inline { width: 100%; display: flex; justify-content: center; align-items: center; padding: 30px 15px; background: var(--primary-bg); min-height: 550px; }
         .game-hidden { display: none !important; }
         .game-card { background: var(--g-panel-bg); width: 100%; max-width: 500px; border-radius: 28px; padding: 26px 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px); margin: 0 auto; color: var(--g-text-light); }
@@ -163,7 +221,6 @@
         .result-meta { background: rgba(255,62,85,0.2); display: inline-block; padding: 6px 16px; border-radius: 30px; font-size: 0.8rem; margin: 10px 0; }
         .result-story { background: rgba(0,0,0,0.3); padding: 15px; border-radius: 20px; margin: 15px 0; font-size: 0.9rem; text-align: justify; }
         
-        /* 推薦閱讀區塊 CSS */
         .result-book-rec { background: rgba(0,0,0,0.4); border: 1px solid var(--gold); border-radius: 16px; padding: 15px; margin: 15px 0; text-align: center; }
         .result-book-rec h3 { color: var(--gold); font-size: 1rem; margin-bottom: 8px; }
         .result-book-rec a { color: #fff; text-decoration: underline; font-weight: bold; font-size: 1.05rem; transition: color 0.3s; }
@@ -197,11 +254,7 @@
             .back-to-top i { font-size: 26px; }
             
             .hero { min-height: 520px; height: auto; padding-bottom: 30px; background-position: top center; background-size: cover; }
-            .hero-layers { 
-                position: relative; left: 0; transform: none; display: flex; 
-                flex-direction: column; align-items: center; justify-content: flex-start; 
-                padding-top: 15px; gap: 15px; height: auto; 
-            }
+            .hero-layers { position: relative; left: 0; transform: none; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 15px; gap: 15px; height: auto; }
             .hero-element { position: relative; top: auto !important; left: auto !important; right: auto !important; margin: 0; transform: none !important; }
             
             .hero-layer-1 { width: 100%; max-width: 500px; animation: fadeIn 1.5s ease forwards 0.2s; }
@@ -221,12 +274,19 @@
             .book-container { grid-template-columns: repeat(2, 1fr); }
             .reels-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto 4rem; }
             .hot-rec-grid { grid-template-columns: repeat(2, 1fr); }
+            
+            /* 一般區塊的手機版優化 */
+            .featured-book-item:not(.video-layout) { flex-direction: column; text-align: center; padding: 20px; }
+            .featured-book-item:not(.video-layout) .featured-book-cover { width: 50%; max-width: 180px; margin: 0 auto; }
+            .featured-book-item:not(.video-layout) .featured-book-content { align-items: center; }
+            .featured-book-item:not(.video-layout) .featured-book-desc { text-align: left; }
         }
 
         @media (max-width: 576px) {
             .book-container { grid-template-columns: 1fr; }
             .game-section { margin-top: 0; }
             .section-title { font-size: 1.4rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 20px; }
         }
     </style>
 </head>
@@ -316,6 +376,82 @@
             </div>
         </section>
         
+        <!-- 獨立書籍重點介紹區塊 (含 YT 影片崁入) -->
+        <section class="featured-books-section" aria-label="重點書籍介紹">
+            
+            <!-- 重點書 1 + 崁入影片 (使用封面置頂與展開排版) -->
+            <article class="featured-book-item video-layout">
+                <!-- 封面置頂 -->
+                <img src="images/title2.webp" alt="日本的那些鬼怪 書影" class="featured-book-cover top-cover">
+                
+                <div class="featured-book-content">
+                    <h3 class="featured-book-title" style="text-align: center; width: 100%;">日本的那些鬼怪：從陰陽師、桃太郎到鬼滅之刃，鬼的形象及其變遷</h3>
+                    
+                    <!-- SEO 關鍵字標籤 -->
+                    <div class="hashtags-container">
+                        <span class="hashtag">#日本歷史</span>
+                        <span class="hashtag">#鬼滅之刃</span>
+                        <span class="hashtag">#陰陽師</span>
+                        <span class="hashtag">#桃太郎</span>
+                        <span class="hashtag">#獵奇冷知識</span>
+                        <span class="hashtag">#台灣商務印書館</span>
+                    </div>
+
+                    <p style="color: var(--gold); margin-bottom: 20px; text-align: center; width: 100%;"><strong>作者：</strong>小山聰子 ｜ <strong>譯者：</strong>許郁文</p>
+                    
+                    <!-- 展開 / 收合文字區塊 -->
+                    <div class="featured-book-desc collapsible-text" id="desc-ghost">
+                        <p><strong>👻 鬼的起源與在地化：</strong><br>日本「鬼」的概念最初是從古代中國傳入。其後續的意涵融合了中國元素、佛教概念與印度傳說，並經過日本社會的吸收與改造，最終化為獨特的日式鬼怪意象。</p>
+                        
+                        <p style="margin-top: 10px;"><strong>👻 從真實恐懼到娛樂題材的轉變：</strong><br>在古代與中世紀，鬼被視為真實存在的恐怖威脅。當時的人們相信疾病是由鬼（如疫鬼）引起的，因此會尋求陰陽師或和尚來驅邪、誦經。直到近代，鬼才逐漸轉變為小說、新聞及動漫（如《鬼滅之刃》）中的獵奇與娛樂題材。</p>
+                        
+                        <p style="margin-top: 10px;"><strong>👻 恐懼、萬惡與排外的代名詞：</strong><br>自然災害、傳染病、忌恨的男女，甚至是畸形兒，都曾被古人當成鬼的代名詞。此外，日本常將鬼的形象套用在外國人或敵國等外來威脅上。例如繪卷中長角的蒙古人，或是二戰時期被塑造成鬼怪的英美士兵（鬼畜米英），在在反映出早期社會排外與排擠弱勢者的心態。</p>
+
+                        <h4 style="color: var(--gold); margin: 20px 0 10px 0; font-size: 1.1rem; border-bottom: 1px dashed rgba(255, 215, 0, 0.4); padding-bottom: 5px;">【那些你不知道的「日本鬼」冷知識】</h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 10px;">👉 <strong>萬物皆可「鬼」化：</strong>古代日本只要遇到地震水災、傳染病，甚至是嫉妒心爆棚的醋罈子男女、畸形嬰兒，通通都會被貼上「你這個鬼」的標籤！</li>
+                            <li style="margin-bottom: 10px;">👉 <strong>生病不看醫生，看陰陽師？：</strong>以前的人覺得生病就是被「疫鬼」纏上，所以生病了不去找藥師抓藥，而是急call陰陽師、法師來驅邪，或是找和尚誦經！</li>
+                            <li style="margin-bottom: 10px;">👉 <strong>地圖上真的有「鬼島」：</strong>古代日本地圖真的有標註「羅剎國」（吃人惡鬼住的地方）。當時身為島國的日本人很少看到外國人，只要有語言不通、長相高大的外國漂流者上岸，就會被島民驚呼「有鬼啊！」</li>
+                            <li style="margin-bottom: 10px;">👉 <strong>吃貨鬼差太好收買了吧！：</strong>佛教故事《日本靈異記》記載，有三個閻羅王的鬼差要去抓一個叫磐島的人，結果因為肚子太餓，竟然被磐島用「兩頭牛（牛肉）」成功賄賂！鬼差放人就算了，還因為怕回去被閻羅王打，拜託磐島幫忙唸經免罪，根本是超萌吃貨！</li>
+                        </ul>
+                    </div>
+
+                    <!-- 展開按鈕 -->
+                    <button type="button" class="toggle-more-btn" onclick="toggleBookDesc('desc-ghost', this)">
+                        展開閱讀更多 <i class="fas fa-chevron-down"></i>
+                    </button>
+
+                    <a href="https://cptw.com.tw/book/07020040" class="btn-buy" target="_blank" rel="noopener">了解更多 / 立即購買</a>
+                </div>
+                
+                <!-- 崁入影片 RWD 容器 -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube-nocookie.com/embed/6C7l6kS81w0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </article>
+
+            <!-- 重點書 2 -->
+            <article class="featured-book-item">
+                <img src="https://d1i8d984en2aby.cloudfront.net/products/2024/7500/conversions/9789570536010-product_preview.webp" alt="蛇妖、賽蓮、漩渦 書影" class="featured-book-cover">
+                <div class="featured-book-content">
+                    <h3 class="featured-book-title">蛇妖、賽蓮、漩渦：來自海洋的冒險與神話</h3>
+                    <p class="featured-book-desc">全彩收錄超過一百幅世界各地圖書館與博物館珍藏圖像—繪畫、藝術品、中世紀書籍插圖、地圖、水手素描，也是令人愛不釋手、深具藝術性的圖文書。探索深海中令人畏懼又著迷的神秘力量。</p>
+                    <a href="https://cptw.com.tw/book/02010008/56" class="btn-buy" target="_blank" rel="noopener">了解更多 / 立即購買</a>
+                </div>
+            </article>
+
+            <!-- 重點書 3 -->
+            <article class="featured-book-item">
+                <img src="https://d1i8d984en2aby.cloudfront.net/products/2026/8451/conversions/01KRJY9HM5HYYZJ509N11DJE69-product_preview.webp" alt="世界郵票中的生肖：蛇 書影" class="featured-book-cover">
+                <div class="featured-book-content">
+                    <h3 class="featured-book-title">【世界郵票中的生肖】蛇：再生、禁忌與智慧</h3>
+                    <p class="featured-book-desc">從日本到埃及、從印度到基督教世界，蛇的形象如何被各國郵票定格、轉譯與再創造？這是一本重新思考「蛇」的意義與力量的知識圖譜，帶領讀者看見方寸之間的豐富文化交融。</p>
+                    <a href="https://cptw.com.tw/book/07010069/54" class="btn-buy" target="_blank" rel="noopener">了解更多 / 立即購買</a>
+                </div>
+            </article>
+            
+        </section>
+
         <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-label="圖鑑詳情"><button type="button" class="close-modal" aria-label="關閉圖鑑">&times;</button><div class="modal-content" id="modalContent"></div></div>
 
         <section class="carousel-section" aria-label="活動橫幅">
@@ -375,7 +511,6 @@
 
     <script>
         // ================= 妖怪資料庫 =================
-        // 修改: 替每一隻妖怪配對專屬的「推薦閱讀」書籍與連結
         const YOKAI_LIB = {
             sea_serpent: { title: "深淵蛇妖祭司", image: "images/game-01.webp", meta: "【職場隱喻】身處決策核心，時刻感到壓力的智者。", story: "你化身為「深淵蛇妖祭司」，坐在遠古的珊瑚寶座上。變身水釋放了你體內冰冷的智慧，你不再是為報表焦慮的社畜，而是深海權力的統治者。百鬼夜行中，冷靜的凝視讓群妖敬畏，一切煩惱都在深淵消融。", bookTitle: "蛇妖、賽蓮、漩渦:來自海洋的冒險與神話", bookLink: "https://cptw.com.tw/book/02010008/56" },
             nekomata: { title: "森林貓又王", image: "images/game-02.webp", meta: "【職場隱喻】渴望掌握大局，擁有處理事務能力的管理才幹。", story: "你化身為「森林貓又王」。隨著一聲咆哮，尾巴清晰分叉。你優雅地坐在權力之巔，下方無數小貓組成的任務漩渦成了最好的幫手。百鬼夜行中，你走過的地方森林閃耀，處理煩惱就像處理貓砂一樣簡單。", bookTitle: "貓走過的近現代:歷史學家帶你一窺日本人與貓的愛恨情仇！", bookLink: "https://cptw.com.tw/book/07010045/56" },
@@ -385,7 +520,6 @@
             tengu: { title: "大天狗山嶽之王", image: "images/game-06.webp", meta: "【職場隱喻】天生極具將才風格、渴望絕對領導地位的獨行俠。", story: "你化身為「大天狗山嶽之王」。自信爆棚，巨大的黑翼展開。你優雅坐在寶座上，那些流言蜚語都為你所用。百鬼夜行中，你手持聖杯，以無敵自信和力量前行，是一切領導的終結者。", bookTitle: "【世界郵票中的生肖】龍：權力、神聖與帝國", bookLink: "https://cptw.com.tw/book/07010068/54" }
         };
         
-        // 5道題目
         const questions = [
             { text: "週一早晨，老闆突然宣布要把你的專案砍掉重練，你的第一反應是？", options: [
                 { text: "冷靜分析利弊，默默開始盤算新的資源配置", score: { sea_serpent: 2, tengu: 1 } },
@@ -424,7 +558,6 @@
         let finalYokaiKey = "sea_serpent";
         let collectedSet = new Set();
 
-        // 收藏功能
         function loadCollection() { try { const saved = localStorage.getItem("yokai_collection"); if(saved) collectedSet = new Set(JSON.parse(saved)); renderCollection(); } catch(e){} }
         function saveCollection() { localStorage.setItem("yokai_collection", JSON.stringify([...collectedSet])); }
         function unlockYokai(key) { if(!collectedSet.has(key)){ collectedSet.add(key); saveCollection(); renderCollection(); showToast(`✨ 解鎖新妖怪：${YOKAI_LIB[key].title} ✨`); } }
@@ -483,13 +616,11 @@
             unlockYokai(finalYokaiKey);
             const data = YOKAI_LIB[finalYokaiKey];
             
-            // 更新結果卡牌與故事
             document.getElementById('result-title').innerText = data.title;
             document.getElementById('result-card-img').src = data.image;
             document.getElementById('result-meta-text').innerHTML = data.meta;
             document.getElementById('result-story-text').innerHTML = data.story;
             
-            // 更新推薦閱讀連結
             document.getElementById('result-book-link').innerText = data.bookTitle;
             document.getElementById('result-book-link').href = data.bookLink;
 
@@ -503,7 +634,6 @@
             document.getElementById('screen-welcome').classList.remove('game-hidden');
         }
 
-        // 社群分享
         function shareEventPage(platform) {
             const shareUrl = "https://www.cptw.com.tw/event/ghost-month";
             let shareText = "";
@@ -543,11 +673,22 @@
         }
 
         function showToast(msg) { const t = document.getElementById('toast-msg'); t.innerText = msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 5000); }
+        
+        // 展開與收合書籍內容功能
+        function toggleBookDesc(contentId, btn) {
+            const content = document.getElementById(contentId);
+            content.classList.toggle('expanded');
+            
+            if (content.classList.contains('expanded')) {
+                btn.innerHTML = '收合內容 <i class="fas fa-chevron-up"></i>';
+            } else {
+                btn.innerHTML = '展開閱讀更多 <i class="fas fa-chevron-down"></i>';
+            }
+        }
 
-        // 頁面初始化
         document.addEventListener("DOMContentLoaded", function() {
             loadCollection();
-            const cards = document.querySelectorAll('.book-card'); 
+            const cards = document.querySelectorAll('.book-card, .featured-book-item'); 
             const observer = new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*100); observer.unobserve(e.target);}});},{threshold:0.1}); cards.forEach(c=>observer.observe(c));
             
             const sakura = document.getElementById('sakura-container'); 
@@ -565,7 +706,6 @@
             
             document.getElementById('backToTopBtn')?.addEventListener('click',()=>{ window.scrollTo({top:0,behavior:'smooth'}); });
             
-            // 卡牌鍵盤操作支援 (A11y)
             document.querySelector('.card-flip-container')?.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleCardFlip(e.currentTarget); } });
         });
     </script>
